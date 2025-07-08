@@ -2,12 +2,13 @@ import { useState } from 'react';
 import './App.css';
 import TodoList from './TodoList';
 import Lottery from './Lottery';
+import Ticket from './Ticket';
 
 function App() {
-
   return (
     <>
-      <Lottery />
+      <Ticket ticket={[0, 1, 2]} />
+      <Ticket ticket={[0, 1, ,5,2]} />
     </>
   );
 }
