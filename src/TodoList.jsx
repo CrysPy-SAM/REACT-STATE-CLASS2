@@ -23,7 +23,7 @@ export default function TodoList() {
      
     let upperCaseAll = () =>{
         setTodo( (prevTodos) =>(
-      todos.map((todo) =>{
+      prevTodos.map((todo) =>{
         return{
             ...todo,
             task: todo.task.toUpperCase()
@@ -31,6 +31,22 @@ export default function TodoList() {
       }))
     )
     };
+
+   let UppercaseOne = (id) => {
+    setTodo((prevTodos) =>
+        prevTodos.map((todo) => {
+            if (todo.id == id) {
+                return {
+                    ...todo,
+                    task: todo.task.toUpperCase()
+                };
+            } else {
+                return todo;
+            }
+        })
+    );
+};
+
 
 
     return (
@@ -52,7 +68,9 @@ export default function TodoList() {
                         <li key={todo.id}>
                             <span>{todo.task}</span>
                              &nbsp; &nbsp;&nbsp;
-                            <button onClick={() => deleteTodo(todo.id)}>delete</button>
+     <button onClick={() => deleteTodo(todo.id)}>delete</button>
+     <button onClick={() => UppercaseOne(todo.id)}>UpperCase One</button>
+                            
                         </li>
                     ))
                 }
