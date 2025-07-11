@@ -1,15 +1,10 @@
-// import { useState } from 'react';
 import './App.css';
-import Form from '../Form';
-import CommentsForm from './CommentForm';
-// import TodoList from './TodoList';
-// import Lottery from './Lottery';
+import Comment from './Lottary-ticket/Comments';
 
 function App() {
   return (
     <>
-     <CommentsForm/>
-
+      <Comment />
     </>
   );
 }

@@ -1,0 +1,95 @@
+.comment {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 4px 12px rgba(255, 79, 135, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 79, 135, 0.1);
+}
+
+.comment p {
+  font-size: 15px;
+  margin: 6px 0;
+  color: #ffffff;
+}
+
+.comment span {
+  font-size: 14px;
+  color: #ffb6c1;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ========= Updated Input/Form Styles ========== */
+
+form {
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(255, 79, 135, 0.08);
+}
+
+label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f0f0f0;
+  margin-bottom: 4px;
+}
+
+/* Modern input styling */
+input,
+textarea {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1.5px solid #444;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ff4f87;
+  box-shadow: 0 0 5px rgba(255, 79, 135, 0.3);
+}
+
+textarea {
+  height: 70px;
+  resize: vertical;
+}
+
+/* Better button */
+button {
+  background-color: #ff4f87;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: #e6437a;
+  transform: translateY(-1px);
+}

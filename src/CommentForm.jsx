@@ -1,69 +1,65 @@
 import { useState } from "react";
 
-export default function CommentsForm() {
-    let [formData, setFormData] = useState({
-        username: "",
-        remark: "",
-        rating: 5
+export default function CommentsForm({ addNewComment }) {
+  const [formData, setFormData] = useState({
+    username: "",
+    remark: "",
+    rating: 5,
+  });
+
+  function handleInputChange(event) {
+    setFormData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    addNewComment(formData);
+    setFormData({
+      username: "",
+      remark: "",
+      rating: 5,
     });
+  }
 
-    let handleInputChange = (event) => {
-        setFormData((currData) => {
-            return { ...currData, [event.target.name]: event.target.value };
-        });
-    };
+  return (
+    <div>
+      <h4>Give a comment!</h4>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          placeholder="username"
+          name="username"
+          value={formData.username}
+          onChange={handleInputChange}
+          id="username"
+        />
 
-    let handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(formData);
-        setFormData( {
-        username: "",
-        remark: "",
-        rating: 5
-    }
-        )
-    };
+        <label htmlFor="remark">Remarks</label>
+        <textarea
+          name="remark"
+          placeholder="add few remarks"
+          value={formData.remark}
+          onChange={handleInputChange}
+          id="remark"
+        />
 
-    return (
-        <div>
-            <h4>Give a comment!</h4>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <input
-                    placeholder="username"
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleInputChange}
-                    id="username"
-                />
-                <br /><br />
+        <label htmlFor="rating">Rating</label>
+        <input
+          type="number"
+          name="rating"
+          value={formData.rating}
+          onChange={handleInputChange}
+          min={1}
+          max={5}
+          id="rating"
+        />
 
-                <label htmlFor="remark">Remarks</label>
-                <textarea
-                    name="remark"
-                    value={formData.remark}
-                    placeholder="add few remarks"
-                    onChange={handleInputChange}
-                    id="remark"
-                />
-                <br /><br />
-
-                <label htmlFor="rating">Rating</label>
-                <input
-                    placeholder="rating"
-                    type="number"
-                    min={1}
-                    max={5}
-                    name="rating"
-                    value={formData.rating}
-                    onChange={handleInputChange}
-                    id="rating"
-                />
-                <br /><br />
-
-                <button type="submit">Add Comment</button>
-            </form>
-        </div>
-    );
+        <button type="submit">Add Comment</button>
+      </form>
+    </div>
+  );
 }
